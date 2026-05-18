@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
+import projectRoutes from "./routes/projects";
+import taskRoutes from "./routes/tasks";
 
 dotenv.config();
 
@@ -16,6 +18,11 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/projects/:projectId/tasks", taskRoutes);
+app.use("/api/tasks", taskRoutes);
+
+export { app };
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
