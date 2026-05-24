@@ -36,7 +36,7 @@ afterAll(async () => {
   try {
     await pool.query("DELETE FROM users WHERE id = $1", [userId]);
   } catch (error){
-    console.error(error);console.error("Migration failed:", error); 
+    console.error("Cleanup failed:", error); 
 
   }
 });
