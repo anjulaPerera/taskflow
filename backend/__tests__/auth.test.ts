@@ -1,6 +1,6 @@
 import request from "supertest";
 import app from "../src/index";
-import pool from "../src/db/connection";
+import pool from "../src/db/testPool";
 
 const testUser = {
   email: "test@taskflow.com",
@@ -10,7 +10,6 @@ const testUser = {
 
 afterAll(async () => {
   await pool.query("DELETE FROM users WHERE email = $1", [testUser.email]);
-  await pool.end();
 });
 
 describe("POST /api/auth/register", () => {

@@ -1,6 +1,6 @@
 import request from "supertest";
 import app from "../src/index";
-import pool from "../src/db/connection";
+import pool from "../src/db/testPool";
 
 let token: string;
 let userId: string;
@@ -21,7 +21,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await pool.query("DELETE FROM users WHERE id = $1", [userId]);
-  await pool.end();
+
 });
 
 describe("POST /api/projects", () => {
