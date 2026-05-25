@@ -3,8 +3,8 @@
 A full-stack task management application built to demonstrate 
 production-grade development practices.
 
-**Live Demo:** [taskflow.vercel.app](link)  
-**Backend API:** [taskflow-api.azurewebsites.net](link)
+**Live Demo:** https://taskflow-frontend-beta-pink.vercel.app/
+**Backend API:** https://taskflow-backend-o9kg.onrender.com/
 
 ## Tech Stack
 - **Frontend:** Next.js 14, TypeScript, Tailwind CSS
