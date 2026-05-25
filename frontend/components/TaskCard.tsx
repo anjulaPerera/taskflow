@@ -92,9 +92,29 @@ export default function TaskCard({
         <button
           onClick={handleDelete}
           disabled={deleting}
-          className="opacity-0 group-hover:opacity-100 text-text-muted hover:text-danger transition-all text-xs font-mono flex-shrink-0 disabled:opacity-40"
+          title="Delete task"
+          className="opacity-0 group-hover:opacity-100 text-text-muted hover:text-danger transition-all duration-200 flex-shrink-0 disabled:opacity-40 p-1 rounded hover:bg-danger/10"
         >
-          {deleting ? "..." : "×"}
+          {deleting ? (
+            <span className="font-mono text-xs">...</span>
+          ) : (
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+              <path d="M10 11v6" />
+              <path d="M14 11v6" />
+              <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
+            </svg>
+          )}
         </button>
       </div>
 
