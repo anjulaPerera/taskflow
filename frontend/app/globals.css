@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap'); */
 
 :root {
   --bg-primary: #0a0a0a;
@@ -31,11 +32,14 @@ html,
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-syne), sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
+.font-mono {
+  font-family: var(--font-dm-mono), monospace;
+}
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

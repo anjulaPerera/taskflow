@@ -24,8 +24,8 @@ const config: Config = {
         success: "var(--success)",
       },
       fontFamily: {
-        sans: ["Syne", "sans-serif"],
-        mono: ["DM Mono", "monospace"],
+        sans: ["var(--font-syne)", "sans-serif"],
+        mono: ["var(--font-dm-mono)", "monospace"],
       },
       animation: {
         "fade-in": "fadeIn 0.4s ease forwards",
