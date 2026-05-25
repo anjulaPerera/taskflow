@@ -75,17 +75,24 @@ export default function ProjectPage() {
       <div className="min-h-screen" style={{ background: "var(--bg-primary)" }}>
         <Navbar />
 
-        <main className="max-w-6xl mx-auto px-6 py-12">
+        <main className="max-w-7xl mx-auto px-6 py-12">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 font-mono text-xs text-text-muted mb-8 animate-fade-in">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 mb-8 animate-fade-in">
             <Link
               href="/dashboard"
-              className="hover:text-accent transition-colors"
+              className="font-mono text-sm font-medium hover:text-accent transition-colors"
+              style={{ color: "var(--text-secondary)" }}
             >
               Projects
             </Link>
-            <span>/</span>
-            <span className="text-text-secondary">
+            <span style={{ color: "var(--text-muted)" }} className="text-sm">
+              /
+            </span>
+            <span
+              className="font-mono text-sm font-medium"
+              style={{ color: "var(--text-primary)" }}
+            >
               {project?.name || "..."}
             </span>
           </div>
@@ -93,15 +100,21 @@ export default function ProjectPage() {
           {/* Header */}
           <div className="flex items-start justify-between mb-10 animate-fade-in">
             <div>
-              <h1 className="font-sans font-bold text-3xl text-text-primary tracking-tight">
+              <h1 className="font-sans font-bold text-4xl text-text-primary tracking-tight">
                 {project?.name}
               </h1>
               {project?.description && (
-                <p className="font-mono text-sm text-text-secondary mt-2">
+                <p
+                  className="font-sans text-base font-medium mt-2"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {project.description}
                 </p>
               )}
-              <p className="font-mono text-xs text-text-muted mt-3">
+              <p
+                className="font-mono text-sm font-medium mt-3"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {tasks.length} task{tasks.length !== 1 ? "s" : ""} ·{" "}
                 {done.length} completed
               </p>
@@ -175,18 +188,33 @@ export default function ProjectPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 animate-fade-in">
               {/* To Do */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
+              <div
+                className="rounded-xl p-4"
+                style={{
+                  background: "var(--bg-secondary)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <div
+                  className="flex items-center gap-2 mb-4 pb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
                   <span
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ background: "var(--text-muted)" }}
                   />
-                  <span className="font-mono text-xs uppercase tracking-widest text-text-muted">
+                  <span className="font-mono text-xs uppercase tracking-widest text-text-secondary font-medium">
                     To Do
                   </span>
-                  <span className="font-mono text-xs text-text-muted ml-auto">
+                  <span
+                    className="font-mono text-xs ml-auto px-2 py-0.5 rounded-full"
+                    style={{
+                      background: "var(--bg-card)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
                     {todo.length}
                   </span>
                 </div>
@@ -200,24 +228,42 @@ export default function ProjectPage() {
                     />
                   ))}
                   {todo.length === 0 && (
-                    <p className="font-mono text-xs text-text-muted text-center py-8">
-                      Empty
+                    <p
+                      className="font-mono text-xs text-center py-10"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      No tasks
                     </p>
                   )}
                 </div>
               </div>
 
               {/* In Progress */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
+              <div
+                className="rounded-xl p-4"
+                style={{
+                  background: "var(--bg-secondary)",
+                  border: "1px solid var(--border-bright)",
+                }}
+              >
+                <div
+                  className="flex items-center gap-2 mb-4 pb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
                   <span
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ background: "var(--accent)" }}
                   />
-                  <span className="font-mono text-xs uppercase tracking-widest text-text-muted">
+                  <span className="font-mono text-xs uppercase tracking-widest text-text-secondary font-medium">
                     In Progress
                   </span>
-                  <span className="font-mono text-xs text-text-muted ml-auto">
+                  <span
+                    className="font-mono text-xs ml-auto px-2 py-0.5 rounded-full"
+                    style={{
+                      background: "var(--accent-glow)",
+                      color: "var(--accent)",
+                    }}
+                  >
                     {inProgress.length}
                   </span>
                 </div>
@@ -231,24 +277,42 @@ export default function ProjectPage() {
                     />
                   ))}
                   {inProgress.length === 0 && (
-                    <p className="font-mono text-xs text-text-muted text-center py-8">
-                      Empty
+                    <p
+                      className="font-mono text-xs text-center py-10"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      No tasks
                     </p>
                   )}
                 </div>
               </div>
 
               {/* Done */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
+              <div
+                className="rounded-xl p-4"
+                style={{
+                  background: "var(--bg-secondary)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <div
+                  className="flex items-center gap-2 mb-4 pb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
                   <span
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ background: "var(--success)" }}
                   />
-                  <span className="font-mono text-xs uppercase tracking-widest text-text-muted">
+                  <span className="font-mono text-xs uppercase tracking-widest text-text-secondary font-medium">
                     Done
                   </span>
-                  <span className="font-mono text-xs text-text-muted ml-auto">
+                  <span
+                    className="font-mono text-xs ml-auto px-2 py-0.5 rounded-full"
+                    style={{
+                      background: "rgba(34,197,94,0.1)",
+                      color: "var(--success)",
+                    }}
+                  >
                     {done.length}
                   </span>
                 </div>
@@ -262,8 +326,11 @@ export default function ProjectPage() {
                     />
                   ))}
                   {done.length === 0 && (
-                    <p className="font-mono text-xs text-text-muted text-center py-8">
-                      Empty
+                    <p
+                      className="font-mono text-xs text-center py-10"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      No tasks
                     </p>
                   )}
                 </div>

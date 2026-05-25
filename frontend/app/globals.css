@@ -6,15 +6,15 @@
 /* @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap'); */
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #161616;
-  --bg-hover: #1e1e1e;
-  --border: #2a2a2a;
-  --border-bright: #3a3a3a;
-  --text-primary: #f0ede8;
-  --text-secondary: #8a8680;
-  --text-muted: #555350;
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #161616;
+  --bg-card: #1a1a1a;
+  --bg-hover: #222222;
+  --border: #2e2e2e;
+  --border-bright: #3d3d3d;
+  --text-primary: #f5f2ed;
+  --text-secondary: #a8a49f;
+  --text-muted: #6b6764;
   --accent: #f59e0b;
   --accent-dim: #92610a;
   --accent-glow: rgba(245, 158, 11, 0.15);

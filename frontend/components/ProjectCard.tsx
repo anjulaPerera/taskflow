@@ -82,16 +82,18 @@ export default function ProjectCard({ project, onDeleted }: ProjectCardProps) {
         </div>
 
         {/* Name */}
-        <h3 className="font-sans font-semibold text-text-primary mb-2 line-clamp-1">
+        <h3 className="font-sans font-semibold text-base text-text-primary mb-2 line-clamp-1">
           {project.name}
         </h3>
 
-        {/* Description */}
         {project.description && (
-          <p className="font-mono text-xs text-text-secondary line-clamp-2 mb-4">
+          <p
+            className="font-sans text-sm line-clamp-2 mb-4"
+            style={{ color: "var(--text-secondary)" }}
+          >
             {project.description}
           </p>
-        )}
+        )}s
 
         {/* Footer */}
         <div className="mt-auto">

@@ -81,11 +81,15 @@ export default function TaskCard({
       {/* Top row */}
       <div className="flex items-start justify-between gap-3 mb-3">
         <h3
-          className={`font-sans font-medium text-sm leading-snug flex-1 ${
-            task.status === "done"
-              ? "line-through text-text-muted"
-              : "text-text-primary"
+          className={`font-sans font-semibold text-base leading-snug flex-1 ${
+            task.status === "done" ? "line-through" : ""
           }`}
+          style={{
+            color:
+              task.status === "done"
+                ? "var(--text-muted)"
+                : "var(--text-primary)",
+          }}
         >
           {task.title}
         </h3>
@@ -120,7 +124,10 @@ export default function TaskCard({
 
       {/* Description */}
       {task.description && (
-        <p className="font-mono text-xs text-text-secondary line-clamp-2 mb-4">
+        <p
+          className="font-sans text-sm font-normal line-clamp-2 mb-4"
+          style={{ color: "var(--text-secondary)" }}
+        >
           {task.description}
         </p>
       )}

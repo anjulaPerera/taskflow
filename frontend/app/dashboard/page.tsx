@@ -48,13 +48,19 @@ export default function DashboardPage() {
           {/* Header */}
           <div className="flex items-start justify-between mb-12 animate-fade-in">
             <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-2">
+              <p
+                className="font-mono text-sm font-medium uppercase tracking-widest mb-2"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {greeting()},
               </p>
-              <h1 className="font-sans font-bold text-3xl text-text-primary tracking-tight">
+              <h1 className="font-sans font-bold text-4xl text-text-primary tracking-tight">
                 {user?.name || "Developer"}
               </h1>
-              <p className="font-mono text-sm text-text-secondary mt-2">
+              <p
+                className="font-mono text-sm font-medium mt-2"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {projects.length === 0
                   ? "No projects yet"
                   : `${projects.length} project${projects.length !== 1 ? "s" : ""}`}
