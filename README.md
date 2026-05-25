@@ -22,7 +22,7 @@ production-grade development practices.
 
 ## Running Locally
 \`\`\`bash
-git clone https://github.com/yourusername/taskflow
+git clone https://github.com/anjulaPeera/taskflow
 cd taskflow
 docker compose up
 \`\`\`
