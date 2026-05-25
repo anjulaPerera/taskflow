@@ -10,7 +10,7 @@ import {
 import { User } from "@/types";
 import { getToken, setToken, removeToken } from "@/lib/api";
 
-// Define the shape of what our context provides
+
 interface AuthContextType {
   user: User | null;
   token: string | null;
@@ -19,24 +19,22 @@ interface AuthContextType {
   loading: boolean;
 }
 
-// Create the context with undefined as default
-// Components must be wrapped in AuthProvider to use this
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// The Provider component wraps your entire app
-// Everything inside it can access the auth state
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setTokenState] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // On app load, check if there's a saved token in localStorage
-  // This is how the user stays "logged in" after refreshing the page
+
   useEffect(() => {
     const savedToken = getToken();
     if (savedToken) {
-      // TODO: In a real app you'd verify the token with the backend here
+      // In reality we should verify the token with the backend here
       // For now, we trust the locally stored token
+      //lets see to it later (further dev)
       setTokenState(savedToken);
       const savedUser = localStorage.getItem("taskflow_user");
       if (savedUser) {
@@ -44,7 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     }
     setLoading(false);
-  }, []); // Empty array = run once when the component mounts
+  }, []); 
 
   const login = (newToken: string, newUser: User) => {
     setToken(newToken);
@@ -67,7 +65,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Custom hook — this is the clean way to consume context
 // Instead of writing useContext(AuthContext) everywhere,
 // components just call useAuth()
 export function useAuth() {
