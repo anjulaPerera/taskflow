@@ -30,13 +30,13 @@ export default function ProjectPage() {
         getProjects(),
         getTasks(projectId),
       ]);
-      const found = projectsData.find((p: Project) => p.id === projectId);
-      if (!found) {
-        router.push("/dashboard");
-        return;
-      }
-      setProject(found);
-      setTasks(tasksData);
+   const found = projectsData.find((p: Project) => p.id === projectId);
+   if (!found) {
+     router.push("/dashboard");
+     return;
+   }
+   setProject(found);
+   setTasks(tasksData);
     } catch {
       router.push("/dashboard");
     } finally {

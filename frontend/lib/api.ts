@@ -1,3 +1,5 @@
+import { Project, Task } from "@/types";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Store and retrieve the JWT token from localStorage
@@ -52,7 +54,10 @@ export const loginUser = (email: string, password: string) =>
   });
 
 // Project functions
-export const getProjects = () => apiFetch("/api/projects");
+export const getProjects = async (): Promise<Project[]> => {
+  const data = await apiFetch("/api/projects");
+  return data.projects ?? [];
+};
 
 export const createProject = (name: string, description: string) =>
   apiFetch("/api/projects", {
@@ -64,8 +69,10 @@ export const deleteProject = (id: string) =>
   apiFetch(`/api/projects/${id}`, { method: "DELETE" });
 
 // Task functions
-export const getTasks = (projectId: string) =>
-  apiFetch(`/api/projects/${projectId}/tasks`);
+export const getTasks = async (projectId: string): Promise<Task[]> => {
+  const data = await apiFetch(`/api/projects/${projectId}/tasks`);
+  return data.tasks ?? [];
+};
 
 export const createTask = (
   projectId: string,
