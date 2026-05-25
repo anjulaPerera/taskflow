@@ -84,7 +84,7 @@ export default function RegisterPage() {
               label="Full Name"
               value={name}
               onChange={setName}
-              placeholder="Anjula Perera"
+              placeholder="Jon Snow"
               error={errors.name}
               autoComplete="name"
             />
@@ -102,7 +102,7 @@ export default function RegisterPage() {
               type="password"
               value={password}
               onChange={setPassword}
-              placeholder="Min. 6 characters"
+              placeholder="Min. 8 characters"
               error={errors.password}
               autoComplete="new-password"
             />
